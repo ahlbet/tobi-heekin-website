@@ -1,13 +1,16 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import P5Wrapper from "react-p5-wrapper"
 
 import Image from "./image"
+import sketch from "./sketch"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
       marginBottom: `1.45rem`,
+      textAlign: `center`,
     }}
   >
     <div
@@ -33,6 +36,7 @@ const Header = ({ siteTitle }) => (
       </div>
       <Link to="/gallery/">Gallery</Link>
     </div>
+    <P5Wrapper sketch={sketch} />
   </header>
 )
 
