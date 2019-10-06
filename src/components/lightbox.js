@@ -69,20 +69,27 @@ class Lightbox extends Component {
       <div className="gallery">
         <div className="columns is-mobile is-multiline">
           {images.map((image, i) => (
-            <a
-              onClick={e => this.handleClick(e, i)}
-              key={image.node.childImageSharp.fluid.src}
+            <div
               className="column gallery__image"
+              key={image.node.childImageSharp.fluid.src}
             >
-              <Img fluid={image.node.childImageSharp.fluid} />
-            </a>
+              <div
+                className="gallery__image--button"
+                onClick={e => this.handleClick(e, i)}
+              >
+                <Img fluid={image.node.childImageSharp.fluid} />
+              </div>
+            </div>
           ))}
         </div>
 
         {isOpen && (
           <div className="lightbox" onKeyUp={e => this.handleKeyDown(e)}>
             <div className="lightbox__content">
-              <Img fluid={images[currentImage].node.childImageSharp.fluid} />
+              <Img
+                className="lightbox__image"
+                fluid={images[currentImage].node.childImageSharp.fluid}
+              />
               <div className="lightbox__controls">
                 <button className="lightbox__button" onClick={this.closeModal}>
                   Close

@@ -1,9 +1,11 @@
-@import "~bulma/bulma.sass";
-
 html {
-  font-family: sans-serif;
+  font-family: "CooperHewitt" sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+@font-face {
+  font-family: "Cooper Hewitt";
+  src: url("../fonts/CooperHewitt-Book.otf");
 }
 body {
   margin: 0;

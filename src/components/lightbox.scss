@@ -2,6 +2,10 @@
   &__image {
     min-width: 300px;
     position: relative;
+
+    &--button {
+      cursor: pointer;
+    }
   }
 }
 
@@ -16,6 +20,10 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
 
+  &__image {
+    max-height: calc(100vh - 100px);
+  }
+
   &__content {
     margin: 15px;
     max-width: 700px;
@@ -25,5 +33,9 @@
   &__controls {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__button {
+    cursor: pointer;
   }
 }
