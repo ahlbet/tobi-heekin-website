@@ -8,10 +8,10 @@ import SEO from "../components/seo"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      galleryImages: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
-        edges {
-          node {
-            ...fluidImage
+      homeImage: file(relativePath: { eq: "gallery/gallery-j.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 700) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -22,9 +22,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div>
-        {data.galleryImages.edges.map(image => (
-          <Img fluid={image.node.childImageSharp.fluid} />
-        ))}
+        <Img fluid={data.homeImage.childImageSharp.fluid} />
       </div>
     </Layout>
   )

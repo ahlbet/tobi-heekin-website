@@ -1,0 +1,41 @@
+.gallery {
+  &__image {
+    min-width: 300px;
+    position: relative;
+
+    &--button {
+      cursor: pointer;
+    }
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+
+  &__image {
+    max-height: calc(100vh - 100px);
+  }
+
+  &__content {
+    margin: 15px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+}
