@@ -11,7 +11,7 @@ import "./about.scss"
 const AboutPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      aboutImage: file(relativePath: { eq: "about.jpg" }) {
+      aboutImage: file(relativePath: { eq: "about-31.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 700) {
             ...GatsbyImageSharpFluid
