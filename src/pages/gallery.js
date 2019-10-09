@@ -8,7 +8,10 @@ import Lightbox from "../components/lightbox"
 const GalleryPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      galleryImages: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+      galleryImages: allFile(
+        sort: { fields: name, order: ASC }
+        filter: { relativeDirectory: { eq: "gallery" } }
+      ) {
         edges {
           node {
             ...fluidImage
