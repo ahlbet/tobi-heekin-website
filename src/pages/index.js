@@ -1,17 +1,20 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 
+import Lightbox from "../components/lightbox"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      homeImage: file(relativePath: { eq: "gallery/gallery-j.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 700) {
-            ...GatsbyImageSharpFluid
+      lifestyleImages: allFile(
+        sort: { fields: name, order: ASC }
+        filter: { relativeDirectory: { eq: "lifestyle" } }
+      ) {
+        edges {
+          node {
+            ...fluidImage
           }
         }
       }
@@ -21,9 +24,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div>
-        <Img fluid={data.homeImage.childImageSharp.fluid} />
-      </div>
+      <Lightbox images={data.lifestyleImages.edges} />
     </Layout>
   )
 }
