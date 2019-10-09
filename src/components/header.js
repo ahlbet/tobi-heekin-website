@@ -5,6 +5,7 @@ import P5Wrapper from "react-p5-wrapper"
 
 import Image from "./image"
 import sketch from "./sketch"
+import "./header.scss"
 
 const Header = ({ siteTitle }) => (
   <header
