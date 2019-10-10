@@ -1,8 +1,11 @@
 export default function sketch(p) {
-  let r, g, b, rOff, gOff, bOff
+  let r, g, b, rOff, gOff, bOff, maxW
 
   p.setup = function() {
-    p.createCanvas(600, 20)
+    maxW = 920
+    let cWidth = p.windowWidth
+    if (p.windowWidth > maxW) cWidth = maxW
+    p.createCanvas(cWidth, 20)
     rOff = p.random(10)
     gOff = p.random(10)
     bOff = p.random(10)
@@ -19,5 +22,11 @@ export default function sketch(p) {
     g = p.noise(p.frameCount / 300, gOff, 1) * 255 + 75
     b = p.noise(p.frameCount / 400, 3, bOff) * 255 + 75
     p.background(r, g, b)
+  }
+
+  p.windowResized = function() {
+    let cWidth = p.windowWidth
+    if (p.windowWidth > maxW) cWidth = maxW
+    p.resizeCanvas(cWidth, 20)
   }
 }

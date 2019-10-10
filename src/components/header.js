@@ -18,7 +18,9 @@ const Header = ({ siteTitle }) => (
       </div>
       <Link to="/gallery/">Gallery</Link>
     </div>
-    <P5Wrapper sketch={sketch} />
+    <div className="header__canvas">
+      <P5Wrapper sketch={sketch} />
+    </div>
   </header>
 )
 
