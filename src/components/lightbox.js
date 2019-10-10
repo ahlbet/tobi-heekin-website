@@ -64,6 +64,7 @@ class Lightbox extends Component {
 
   render() {
     const { images } = this.props
+    const imagesCopy = images
     const { isOpen, currentImage } = this.state
     return (
       <div className="gallery">
@@ -75,14 +76,14 @@ class Lightbox extends Component {
         </div>
         <hr />
         <div className="columns is-mobile is-multiline">
-          {images.slice(1).map((image, i) => (
+          {imagesCopy.slice(1).map((image, i) => (
             <div
               className="column gallery__image"
               key={image.node.childImageSharp.fluid.src}
             >
               <div
                 className="gallery__image--button"
-                onClick={e => this.handleClick(e, i)}
+                onClick={e => this.handleClick(e, i + 1)}
               >
                 <Img fluid={image.node.childImageSharp.fluid} />
               </div>
