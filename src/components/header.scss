@@ -1,3 +1,28 @@
-a {
-  color: black;
+@import "../css//variables.scss";
+
+.header {
+  margin-bottom: 1.45rem;
+  text-align: center;
+
+  a {
+    color: black;
+  }
+
+  &__links {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 1.45rem 1.0875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 200px;
+    margin: 0 25px;
+
+    @media screen and (min-width: $tablet) {
+      margin: 0 50px;
+    }
+  }
 }

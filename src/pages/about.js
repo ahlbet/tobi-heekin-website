@@ -5,13 +5,14 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Quote from "../components/quote"
 
 import "./about.scss"
 
 const AboutPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      aboutImage: file(relativePath: { eq: "about-31.jpg" }) {
+      aboutImage: file(relativePath: { eq: "head-shot.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 700) {
             ...GatsbyImageSharpFluid
@@ -24,6 +25,10 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
+      <Quote
+        text={"wrinkles should merely indicate where smiles have been."}
+        author={"mark twain"}
+      />
       <div className="about columns">
         <div className="about__image column">
           <Img fluid={data.aboutImage.childImageSharp.fluid} />

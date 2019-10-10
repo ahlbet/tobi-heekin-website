@@ -67,8 +67,14 @@ class Lightbox extends Component {
     const { isOpen, currentImage } = this.state
     return (
       <div className="gallery">
+        <div
+          className="column gallery__image gallery__image--button"
+          onClick={e => this.handleClick(e, 0)}
+        >
+          <Img fluid={images[0].node.childImageSharp.fluid} />
+        </div>
         <div className="columns is-mobile is-multiline">
-          {images.map((image, i) => (
+          {images.slice(1).map((image, i) => (
             <div
               className="column gallery__image"
               key={image.node.childImageSharp.fluid.src}
