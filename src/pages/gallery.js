@@ -27,7 +27,7 @@ const GalleryPage = () => {
       <SEO title="Gallery" />
       <Quote
         text={
-          "the moment you accept what troubles you've been given, the door will open"
+          "the moment you accept what troubles you've been given, the door will open."
         }
         author={"rumi"}
       />

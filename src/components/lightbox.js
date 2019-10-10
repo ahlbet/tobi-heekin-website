@@ -73,6 +73,7 @@ class Lightbox extends Component {
         >
           <Img fluid={images[0].node.childImageSharp.fluid} />
         </div>
+        <hr />
         <div className="columns is-mobile is-multiline">
           {images.slice(1).map((image, i) => (
             <div
@@ -88,7 +89,6 @@ class Lightbox extends Component {
             </div>
           ))}
         </div>
-
         {isOpen && (
           <div className="lightbox" onKeyUp={e => this.handleKeyDown(e)}>
             <div className="lightbox__content">
