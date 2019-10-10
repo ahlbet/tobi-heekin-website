@@ -223,7 +223,7 @@ img {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  // margin-bottom: 1.45rem;
 }
 h1 {
   margin-left: 0;
@@ -486,10 +486,10 @@ hr {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: calc(1.45rem - 1px);
+  margin-bottom: calc(1rem - 3px);
   background: hsla(0, 0%, 0%, 0.2);
   border: none;
-  height: 1px;
+  height: 3px;
 }
 address {
   margin-left: 0;

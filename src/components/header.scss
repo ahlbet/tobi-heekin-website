@@ -4,6 +4,10 @@
   margin-bottom: 1.45rem;
   text-align: center;
 
+  // @media screen and (min-width: $tablet) {
+  //   margin-bottom: 1.45rem;
+  // }
+
   a {
     color: black;
   }
@@ -15,11 +19,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // align-self: center;
   }
 
   &__logo {
     width: 200px;
     margin: 0 25px;
+
+    a {
+      height: 0px;
+    }
 
     @media screen and (min-width: $tablet) {
       margin: 0 50px;

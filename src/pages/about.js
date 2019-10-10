@@ -50,7 +50,7 @@ const AboutPage = () => {
           Whether they be joyful, sad, frustrated or courageous. Tobi can now
           look at her work and see the empowerment and beauty that lives inside
           her. Today, Tobi says she lives a life of gratitude and has so many
-          wonderful blessings
+          wonderful blessings.
         </p>
       </div>
     </Layout>
