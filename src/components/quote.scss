@@ -1,0 +1,31 @@
+@import "../css/variables.scss";
+
+.quote {
+  border-top: 2px solid $charcoal;
+  border-bottom: 2px solid $charcoal;
+  margin: 0 auto 40px;
+  width: 90%;
+  padding: 15px;
+  color: $charcoal;
+
+  @media screen and (min-width: $mobile) {
+    width: 75%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 50%;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  &__author {
+    margin: 0;
+    padding: 0;
+    text-align: end;
+  }
+}

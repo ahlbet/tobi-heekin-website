@@ -8,29 +8,10 @@ import sketch from "./sketch"
 import "./header.scss"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      marginBottom: `1.45rem`,
-      textAlign: `center`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-        display: `flex`,
-        justifyContent: `center`,
-        alignItems: `center`,
-      }}
-    >
+  <header className="header">
+    <div className="header__links">
       <Link to="/about/">About</Link>
-      <div
-        style={{
-          width: `200px`,
-          margin: `0 50px`,
-        }}
-      >
+      <div className="header__logo">
         <Link to="/">
           <Image />
         </Link>
