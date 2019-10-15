@@ -72,7 +72,10 @@ class Lightbox extends Component {
           className="column gallery__image gallery__image--button"
           onClick={e => this.handleClick(e, 0)}
         >
-          <Img fluid={images[0].node.childImageSharp.fluid} />
+          <Img
+            alt="Tobi Heekin Image"
+            fluid={images[0].node.childImageSharp.fluid}
+          />
         </div>
         <hr />
         <div className="columns is-mobile is-multiline">
@@ -85,7 +88,10 @@ class Lightbox extends Component {
                 className="gallery__image--button"
                 onClick={e => this.handleClick(e, i + 1)}
               >
-                <Img fluid={image.node.childImageSharp.fluid} />
+                <Img
+                  alt="Tobi Heekin Image"
+                  fluid={image.node.childImageSharp.fluid}
+                />
               </div>
             </div>
           ))}
@@ -94,6 +100,7 @@ class Lightbox extends Component {
           <div className="lightbox" onKeyUp={e => this.handleKeyDown(e)}>
             <div className="lightbox__content">
               <Img
+                alt="Tobi Heekin Image"
                 className="lightbox__image"
                 fluid={images[currentImage].node.childImageSharp.fluid}
               />

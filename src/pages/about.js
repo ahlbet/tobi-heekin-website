@@ -31,7 +31,10 @@ const AboutPage = () => {
       />
       <div className="about columns">
         <div className="about__image column">
-          <Img fluid={data.aboutImage.childImageSharp.fluid} />
+          <Img
+            alt="Tobi Heekin Headshot"
+            fluid={data.aboutImage.childImageSharp.fluid}
+          />
         </div>
         <p className="about__text column">
           Tobi describes herself as a 'proud lowa girl'. After growing up in Des
