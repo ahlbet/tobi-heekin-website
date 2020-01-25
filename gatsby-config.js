@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Tobi Heekin Art`,
     description: `Tobi Craiger Heekin Art`,
-    author: `@gatsbyjs`,
+    author: `Dylan Stratton`,
   },
   plugins: [
     `gatsby-plugin-sass`,
