@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Lightbox from "../components/lightbox"
+import Slideshow from "../components/slideshow"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Quote from "../components/quote"
@@ -26,12 +26,10 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <Quote
-        text={
-          "life isn't about finding yourself.  it's about creating yourself."
-        }
-        author={"george bernard shaw"}
+        text="life isn't about finding yourself.  it's about creating yourself."
+        author="george bernard shaw"
       />
-      <Lightbox images={data.lifestyleImages.edges} />
+      <Slideshow images={data.lifestyleImages.edges} />
     </Layout>
   )
 }
