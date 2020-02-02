@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
-import Img from "gatsby-image"
 import useInterval from "../hooks/useInterval"
 
 import "./slideshow.scss"
@@ -20,9 +19,9 @@ const Slideshow = props => {
 
   return (
     <div className="slideshow">
-      <Img
+      <img
         alt="Tobi Heekin Image"
-        fluid={images[currentImage].node.childImageSharp.fluid}
+        src={images[currentImage].node.childImageSharp.fluid.src}
       />
     </div>
   )
