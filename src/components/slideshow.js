@@ -15,7 +15,7 @@ const Slideshow = props => {
     } else {
       setCurrentImage(currentImage + 1)
     }
-  }, 6000)
+  }, 4500)
 
   return (
     <div className="slideshow">
