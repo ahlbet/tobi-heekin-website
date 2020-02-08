@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 
 import "./lightbox.scss"
 
+import { info } from "../data/info.ts"
+
 class Lightbox extends Component {
   constructor(props) {
     super(props)
@@ -108,6 +110,7 @@ class Lightbox extends Component {
                 <button className="lightbox__button" onClick={this.closeModal}>
                   Close
                 </button>
+
                 <div className="lightbox__next">
                   <button
                     className="lightbox__button"
@@ -124,6 +127,22 @@ class Lightbox extends Component {
                     Next
                   </button>
                 </div>
+              </div>
+              <div className="lightbox__info">
+                <span>
+                  {info[currentImage].title}
+                  {"   "}
+                </span>
+                <span>
+                  {info[currentImage].dimensions}
+                  {"   "}
+                </span>
+                <span>{info[currentImage].materials} </span>
+                {info[currentImage].sold && <span>SOLD</span>}
+
+                {info[currentImage].cost && (
+                  <span>{`$ ${info[currentImage].cost}`}</span>
+                )}
               </div>
             </div>
           </div>
