@@ -128,4 +128,25 @@ export const info = [
     sold: false,
     cost: 200,
   },
+
+  {
+    title: "NIGHTFALL",
+    dimensions: `18 X 24"`,
+    materials: "Acrylic, Ink and Gloss",
+    sold: false,
+  },
+
+  {
+    title: "OCEAN FLOOR",
+    dimensions: `18 X 24"`,
+    materials: "Acrylic, Ink and Gold Leaf",
+    sold: false,
+  },
+
+  {
+    title: "DECEMBER SUN",
+    dimensions: `18 X 24"`,
+    materials: "Acrylic, Ink and Gloss",
+    sold: false,
+  },
 ]
