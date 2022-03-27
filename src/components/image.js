@@ -1,25 +1,12 @@
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 
-import { GatsbyImage } from "gatsby-plugin-image"
+import Image from "next/image"
+// import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
+import headerPic from "../../public/images/name_big_bw.png"
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    {
-      placeholderImage: file(relativePath: { eq: "name_big_bw.png" }) {
-        childImageSharp {
-          gatsbyImageData(width: 300, layout: CONSTRAINED)
-        }
-      }
-    }
-  `)
-
-  return (
-    <GatsbyImage
-      alt="Tobi Heekin Art"
-      image={data.placeholderImage.childImageSharp.gatsbyImageData}
-    />
-  )
+const HeaderImage = () => {
+  return <Image alt="Tobi Heekin Art" src={headerPic} />
 }
 
-export default Image
+export default HeaderImage

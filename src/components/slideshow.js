@@ -1,8 +1,7 @@
-import "./slideshow.scss"
-
 import React, { useState } from "react"
 
-import { GatsbyImage } from "gatsby-plugin-image"
+import Image from "next/image"
+// import { GatsbyImage } from "gatsby-plugin-image"
 import useInterval from "../hooks/useInterval"
 
 const Slideshow = props => {
@@ -19,10 +18,13 @@ const Slideshow = props => {
   }, 4500)
 
   return (
-    <div className="slideshow">
-      <GatsbyImage
+    <div className="flex justify-center">
+      <Image
         alt="Tobi Heekin Image"
-        image={images[currentImage].node.childImageSharp.gatsbyImageData}
+        src={images[currentImage]}
+        width={600}
+        height={600}
+        objectFit="contain"
       />
     </div>
   )

@@ -1,27 +1,12 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Slideshow from "../components/slideshow"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Quote from "../components/quote"
+import React from "react"
+import SEO from "../components/seo"
+import Slideshow from "../components/slideshow"
+import fs from "fs"
+import { join } from "path"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      lifestyleImages: allFile(
-        sort: { fields: name, order: ASC }
-        filter: { relativeDirectory: { eq: "lifestyle" } }
-      ) {
-        edges {
-          node {
-            ...fluidImage
-          }
-        }
-      }
-    }
-  `)
-
+const IndexPage = props => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -29,16 +14,17 @@ const IndexPage = () => {
         text="life isn't about finding yourself.  it's about creating yourself."
         author="george bernard shaw"
       />
-      <Slideshow images={data.lifestyleImages.edges} />
+      <Slideshow images={props.images} />
     </Layout>
   )
 }
 
-export const fluidImage = graphql`fragment fluidImage on File {
-  childImageSharp {
-    gatsbyImageData(width: 700, layout: CONSTRAINED)
-  }
+export function getStaticProps() {
+  const images = fs
+    .readdirSync(join(process.cwd(), "public/images/lifestyle"))
+    .map(file => `/images/lifestyle/${file}`)
+
+  return { props: { images } }
 }
-`
 
 export default IndexPage

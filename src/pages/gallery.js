@@ -1,27 +1,12 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Lightbox from "../components/lightbox"
 import Quote from "../components/quote"
+import React from "react"
+import SEO from "../components/seo"
+import fs from "fs"
+import { join } from "path"
 
-const GalleryPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      galleryImages: allFile(
-        sort: { fields: name, order: ASC }
-        filter: { relativeDirectory: { eq: "gallery" } }
-      ) {
-        edges {
-          node {
-            ...fluidImage
-          }
-        }
-      }
-    }
-  `)
-
+const GalleryPage = props => {
   return (
     <Layout>
       <SEO title="Gallery" />
@@ -31,9 +16,17 @@ const GalleryPage = () => {
         }
         author={"rumi"}
       />
-      <Lightbox images={data.galleryImages.edges} />
+      <Lightbox images={props.images} />
     </Layout>
   )
+}
+
+export function getStaticProps() {
+  const images = fs
+    .readdirSync(join(process.cwd(), "public/images/gallery"))
+    .map(file => `/images/gallery/${file}`)
+
+  return { props: { images } }
 }
 
 export default GalleryPage

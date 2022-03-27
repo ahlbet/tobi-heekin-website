@@ -1,24 +1,11 @@
-import React from "react"
-
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
-
+import Image from "next/image"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Quote from "../components/quote"
-
-import "./about.scss"
+import React from "react"
+import SEO from "../components/seo"
+import aboutImage from "../../public/images/head-shot.jpg"
 
 const AboutPage = () => {
-  const data = useStaticQuery(graphql`{
-  aboutImage: file(relativePath: {eq: "head-shot.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 700, layout: CONSTRAINED)
-    }
-  }
-}
-`)
-
   return (
     <Layout>
       <SEO title="About" />
@@ -26,13 +13,11 @@ const AboutPage = () => {
         text={"wrinkles should merely indicate where smiles have been."}
         author={"mark twain"}
       />
-      <div className="about columns">
-        <div className="about__image column">
-          <GatsbyImage
-            image={data.aboutImage.childImageSharp.gatsbyImageData}
-            alt="Tobi Heekin Headshot" />
+      <div className="flex flex-col items-center md:flex-row">
+        <div className="md:w-6/12">
+          <Image src={aboutImage} alt="Tobi Heekin Headshot" />
         </div>
-        <p className="about__text column">
+        <p className="md:w-1/2 md:px-5">
           Tobi describes herself as a 'proud lowa girl'. After growing up in Des
           Moines and graduating from the University of lowa she hightailed it to
           the Chicago to seek new adventures. After working and enjoying the
@@ -53,7 +38,7 @@ const AboutPage = () => {
         </p>
       </div>
     </Layout>
-  );
+  )
 }
 
 export default AboutPage

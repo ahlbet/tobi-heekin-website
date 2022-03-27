@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 
-import { GatsbyImage } from "gatsby-plugin-image";
-
-import "./lightbox.scss"
-
+import Image from "next/image"
+// import { GatsbyImage } from "gatsby-plugin-image"
 import { info } from "../data/info.ts"
+
+// import "./lightbox.scss"
 
 class Lightbox extends Component {
   constructor(props) {
@@ -69,40 +69,49 @@ class Lightbox extends Component {
     const imagesCopy = images
     const { isOpen, currentImage } = this.state
     return (
-      <div className="gallery">
-        <div
-          className="column gallery__image gallery__image--button"
-          onClick={e => this.handleClick(e, 0)}
-        >
-          <GatsbyImage
-            image={images[0].node.childImageSharp.gatsbyImageData}
-            alt="Tobi Heekin Image" />
+      <div className="flex flex-col items-center">
+        <div className="cursor-pointer" onClick={e => this.handleClick(e, 0)}>
+          <Image
+            src={images[0]}
+            alt="Tobi Heekin Image"
+            width={600}
+            height={600}
+            objectFit="contain"
+          />
         </div>
         <hr />
-        <div className="columns is-mobile is-multiline">
+        <div className="flex flex-col items-center">
           {imagesCopy.slice(1).map((image, i) => (
-            <div
-              className="column gallery__image"
-              key={image.node.childImageSharp.gatsbyImageData.src}
-            >
+            <div className="column gallery__image" key={image}>
               <div
-                className="gallery__image--button"
+                className="cursor-pointer"
                 onClick={e => this.handleClick(e, i + 1)}
               >
-                <GatsbyImage
-                  image={image.node.childImageSharp.gatsbyImageData}
-                  alt="Tobi Heekin Image" />
+                <Image
+                  src={image}
+                  alt="Tobi Heekin Image"
+                  width={600}
+                  height={600}
+                  objectFit="contain"
+                />
               </div>
             </div>
           ))}
         </div>
         {isOpen && (
-          <div className="lightbox" onKeyUp={e => this.handleKeyDown(e)}>
+          <div
+            className="fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center bg-opacity-50 bg-black"
+            onKeyUp={e => this.handleKeyDown(e)}
+          >
             <div className="lightbox__content">
-              <GatsbyImage
-                image={images[currentImage].node.childImageSharp.gatsbyImageData}
+              <Image
+                src={images[currentImage]}
                 alt="Tobi Heekin Image"
-                className="lightbox__image" />
+                className="lightbox__image"
+                width={600}
+                height={600}
+                objectFit="contain"
+              />
               <div className="lightbox__controls">
                 <button className="lightbox__button" onClick={this.closeModal}>
                   Close
@@ -145,7 +154,7 @@ class Lightbox extends Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
