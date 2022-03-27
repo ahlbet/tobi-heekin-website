@@ -1,7 +1,7 @@
 import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,17 +10,14 @@ import Quote from "../components/quote"
 import "./about.scss"
 
 const AboutPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      aboutImage: file(relativePath: { eq: "head-shot.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 700) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+  const data = useStaticQuery(graphql`{
+  aboutImage: file(relativePath: {eq: "head-shot.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 700, layout: CONSTRAINED)
     }
-  `)
+  }
+}
+`)
 
   return (
     <Layout>
@@ -31,10 +28,9 @@ const AboutPage = () => {
       />
       <div className="about columns">
         <div className="about__image column">
-          <Img
-            alt="Tobi Heekin Headshot"
-            fluid={data.aboutImage.childImageSharp.fluid}
-          />
+          <GatsbyImage
+            image={data.aboutImage.childImageSharp.gatsbyImageData}
+            alt="Tobi Heekin Headshot" />
         </div>
         <p className="about__text column">
           Tobi describes herself as a 'proud lowa girl'. After growing up in Des
@@ -57,7 +53,7 @@ const AboutPage = () => {
         </p>
       </div>
     </Layout>
-  )
+  );
 }
 
 export default AboutPage

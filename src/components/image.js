@@ -1,23 +1,23 @@
+import { graphql, useStaticQuery } from "gatsby"
+
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 const Image = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       placeholderImage: file(relativePath: { eq: "name_big_bw.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 300, layout: CONSTRAINED)
         }
       }
     }
   `)
 
   return (
-    <img
+    <GatsbyImage
       alt="Tobi Heekin Art"
-      src={data.placeholderImage.childImageSharp.fluid.src}
+      image={data.placeholderImage.childImageSharp.gatsbyImageData}
     />
   )
 }

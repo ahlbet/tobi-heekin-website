@@ -34,14 +34,11 @@ const IndexPage = () => {
   )
 }
 
-export const fluidImage = graphql`
-  fragment fluidImage on File {
-    childImageSharp {
-      fluid(maxWidth: 700) {
-        ...GatsbyImageSharpFluid
-      }
-    }
+export const fluidImage = graphql`fragment fluidImage on File {
+  childImageSharp {
+    gatsbyImageData(width: 700, layout: CONSTRAINED)
   }
+}
 `
 
 export default IndexPage

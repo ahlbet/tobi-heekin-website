@@ -10,7 +10,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /p5.js/,
+            test: /p5/,
             use: loaders.null(),
           },
         ],

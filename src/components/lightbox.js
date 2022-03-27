@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import "./lightbox.scss"
 
@@ -74,26 +74,24 @@ class Lightbox extends Component {
           className="column gallery__image gallery__image--button"
           onClick={e => this.handleClick(e, 0)}
         >
-          <Img
-            alt="Tobi Heekin Image"
-            fluid={images[0].node.childImageSharp.fluid}
-          />
+          <GatsbyImage
+            image={images[0].node.childImageSharp.gatsbyImageData}
+            alt="Tobi Heekin Image" />
         </div>
         <hr />
         <div className="columns is-mobile is-multiline">
           {imagesCopy.slice(1).map((image, i) => (
             <div
               className="column gallery__image"
-              key={image.node.childImageSharp.fluid.src}
+              key={image.node.childImageSharp.gatsbyImageData.src}
             >
               <div
                 className="gallery__image--button"
                 onClick={e => this.handleClick(e, i + 1)}
               >
-                <Img
-                  alt="Tobi Heekin Image"
-                  fluid={image.node.childImageSharp.fluid}
-                />
+                <GatsbyImage
+                  image={image.node.childImageSharp.gatsbyImageData}
+                  alt="Tobi Heekin Image" />
               </div>
             </div>
           ))}
@@ -101,11 +99,10 @@ class Lightbox extends Component {
         {isOpen && (
           <div className="lightbox" onKeyUp={e => this.handleKeyDown(e)}>
             <div className="lightbox__content">
-              <Img
+              <GatsbyImage
+                image={images[currentImage].node.childImageSharp.gatsbyImageData}
                 alt="Tobi Heekin Image"
-                className="lightbox__image"
-                fluid={images[currentImage].node.childImageSharp.fluid}
-              />
+                className="lightbox__image" />
               <div className="lightbox__controls">
                 <button className="lightbox__button" onClick={this.closeModal}>
                   Close
@@ -148,7 +145,7 @@ class Lightbox extends Component {
           </div>
         )}
       </div>
-    )
+    );
   }
 }
 
